@@ -1,0 +1,15 @@
+{
+  "name": "cheongnyeom-toktok",
+  "version": "1.0.0",
+  "description": "청렴톡톡 홈페이지 - OpenAI Responses API + Vector Store File Search",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "express": "^4.18.3"
+  }
+}

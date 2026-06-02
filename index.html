@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="청탁금지법, 이해충돌방지법 등 청렴 관련 법령을 쉽게 안내하는 청렴톡톡 홈페이지입니다." />
+  <title>청렴톡톡</title>
+  <style>
+    :root{
+      --bg:#f3f8f6;
+      --bg2:#fbfefd;
+      --card:#ffffff;
+      --text:#111827;
+      --muted:#64748b;
+      --line:#e5e7eb;
+      --accent:#0f766e;
+      --accent2:#115e59;
+      --soft:#ecfdf5;
+      --warn:#d97706;
+      --shadow:0 18px 44px rgba(15,118,110,.12);
+      --shadow2:0 10px 24px rgba(15,23,42,.08);
+      --radius:22px;
+      --max:1120px;
+    }
+    *{box-sizing:border-box;}
+    html,body{height:100%;}
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans KR",Arial,sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at 12% 8%, rgba(15,118,110,.12), transparent 28%),
+        radial-gradient(circle at 90% 10%, rgba(34,197,94,.10), transparent 26%),
+        linear-gradient(180deg,var(--bg2),var(--bg));
+      -webkit-font-smoothing:antialiased;
+    }
+    a{color:inherit;text-decoration:none;}
+    button,input{font-family:inherit;}
+    :focus-visible{outline:3px solid rgba(15,118,110,.32);outline-offset:3px;border-radius:14px;}
+
+    header{
+      position:sticky;top:0;z-index:20;
+      background:rgba(255,255,255,.88);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid rgba(229,231,235,.85);
+    }
+    .header-inner{
+      width:min(var(--max),calc(100% - 24px));
+      margin:0 auto;
+      padding:14px 0;
+      display:flex;align-items:center;justify-content:space-between;gap:12px;
+    }
+    .brand{display:flex;align-items:center;gap:12px;min-width:0;}
+    .mark{
+      width:46px;height:46px;border-radius:17px;
+      display:grid;place-items:center;
+      color:#fff;font-weight:950;font-size:20px;
+      background:linear-gradient(135deg,var(--accent),#22c55e);
+      box-shadow:0 12px 24px rgba(15,118,110,.25);
+      flex:none;
+    }
+    .brand-text{display:flex;flex-direction:column;line-height:1.25;min-width:0;}
+    .site{font-size:21px;font-weight:950;letter-spacing:-.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+    .org{font-size:13px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+    .top-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:flex-end;}
+    .pill{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:9px 12px;border:1px solid var(--line);border-radius:999px;background:#fff;
+      color:#334155;font-size:13px;font-weight:800;box-shadow:0 8px 18px rgba(0,0,0,.04);
+    }
+    .pill .dot{width:10px;height:10px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 4px rgba(34,197,94,.12);}
+    .header-link{
+      padding:10px 13px;border-radius:14px;background:rgba(15,118,110,.09);border:1px solid rgba(15,118,110,.18);
+      color:#064e3b;font-size:13px;font-weight:900;
+    }
+    @media(max-width:720px){.pill{display:none}.header-link{font-size:12px;padding:9px 11px}.site{font-size:19px}}
+
+    main{width:min(var(--max),calc(100% - 24px));margin:0 auto;padding:26px 0 42px;}
+    .hero{
+      display:grid;grid-template-columns:1.15fr .85fr;gap:18px;align-items:stretch;
+    }
+    @media(max-width:900px){.hero{grid-template-columns:1fr;}}
+    .hero-main,.side-card,.chat-card,.notice-card,.faq-card{
+      background:rgba(255,255,255,.92);border:1px solid rgba(229,231,235,.9);border-radius:28px;box-shadow:var(--shadow);
+    }
+    .hero-main{padding:26px;}
+    .eyebrow{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:9px 12px;border-radius:999px;background:rgba(15,118,110,.09);border:1px solid rgba(15,118,110,.14);
+      color:#0f4f47;font-size:13px;font-weight:950;
+    }
+    .eyebrow .dot{width:10px;height:10px;border-radius:50%;background:#22c55e;}
+    h1{margin:16px 0 10px;font-size:clamp(31px,4.2vw,48px);line-height:1.1;letter-spacing:-1.2px;}
+    .hero p{margin:0;color:var(--muted);font-size:15px;line-height:1.8;}
+    .hero-buttons{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px;}
+    .btn{
+      border:1px solid var(--line);background:#fff;color:#111827;border-radius:15px;padding:12px 14px;
+      font-weight:900;font-size:14px;cursor:pointer;box-shadow:0 8px 18px rgba(0,0,0,.04);
+    }
+    .btn.primary{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;border-color:transparent;box-shadow:0 14px 28px rgba(15,118,110,.24);}
+    .btn.soft{background:rgba(15,118,110,.08);border-color:rgba(15,118,110,.16);color:#064e3b;}
+    .btn:hover{transform:translateY(-1px);}
+
+    .side-card{padding:18px;display:grid;gap:12px;}
+    .side-card h2{margin:0;font-size:20px;letter-spacing:-.4px;}
+    .feature{padding:14px;border:1px solid var(--line);border-radius:20px;background:#fff;box-shadow:0 8px 18px rgba(0,0,0,.035);}
+    .feature strong{display:block;font-size:15px;margin-bottom:6px;}
+    .feature span{display:block;color:var(--muted);font-size:13px;line-height:1.6;}
+
+    .section-head{margin:20px 0 12px;display:flex;align-items:end;justify-content:space-between;gap:12px;}
+    .section-head h2{margin:0;font-size:24px;letter-spacing:-.6px;}
+    .section-head p{margin:4px 0 0;color:var(--muted);font-size:14px;line-height:1.7;}
+
+    .quick{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:12px;}
+    .qbtn{
+      border:1px solid rgba(15,118,110,.16);background:#fff;border-radius:999px;
+      padding:10px 12px;font-size:13px;font-weight:900;color:#134e4a;cursor:pointer;
+      box-shadow:0 8px 18px rgba(0,0,0,.04);
+    }
+    .qbtn:hover{background:rgba(15,118,110,.06);}
+
+    .chat-card{padding:16px;}
+    .chatlog{
+      min-height:280px;max-height:520px;overflow:auto;
+      display:flex;flex-direction:column;gap:10px;padding:4px 2px 12px;
+      scroll-behavior:smooth;
+    }
+    .bubble{
+      max-width:92%;padding:11px 13px;border-radius:18px;border:1px solid var(--line);background:#fff;
+      line-height:1.65;white-space:pre-wrap;word-break:break-word;box-shadow:0 6px 14px rgba(0,0,0,.035);
+    }
+    .bubble.user{margin-left:auto;background:rgba(15,118,110,.09);border-color:rgba(15,118,110,.18);}
+    .bubble.assistant{margin-right:auto;}
+    .meta{display:block;font-size:12px;color:var(--muted);font-weight:900;margin-bottom:6px;}
+    .md-content{font-size:14px;line-height:1.7;overflow-x:auto;}
+    .md-content p{margin:0 0 10px;}.md-content p:last-child{margin-bottom:0;}
+    .md-content ul,.md-content ol{margin:0 0 10px;padding-left:20px;}
+    .md-content li{margin:4px 0;}.md-content strong{font-weight:900;}
+    .md-content code{background:#f1f5f9;padding:2px 5px;border-radius:6px;}
+    .md-content table{width:100%;border-collapse:collapse;margin:8px 0;font-size:13px;min-width:520px;}
+    .md-content th,.md-content td{border:1px solid #e5e7eb;padding:8px 10px;text-align:left;vertical-align:top;}
+    .md-content th{background:#f8fafc;}
+    .chatform{display:flex;gap:10px;margin-top:10px;border-top:1px dashed var(--line);padding-top:12px;}
+    .chatin{flex:1;min-width:0;border:1px solid var(--line);border-radius:16px;padding:13px 14px;font-size:14px;outline:none;background:#fff;}
+    .send{border:0;border-radius:16px;padding:13px 16px;background:var(--accent);color:#fff;font-weight:950;cursor:pointer;}
+    .send:disabled,.chatin:disabled{opacity:.58;cursor:not-allowed;}
+    @media(max-width:600px){.chatform{flex-direction:column}.send{width:100%}.bubble{max-width:96%;}}
+
+    .info-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:18px;}
+    @media(max-width:820px){.info-grid{grid-template-columns:1fr;}}
+    .notice-card,.faq-card{padding:16px;box-shadow:var(--shadow2);}
+    .notice-card strong,.faq-card strong{display:block;margin-bottom:8px;color:#134e4a;}
+    .notice-card p,.faq-card p{margin:0;color:var(--muted);font-size:14px;line-height:1.75;}
+    details{border:1px solid var(--line);border-radius:16px;padding:12px;background:#fff;margin-top:10px;}
+    summary{cursor:pointer;font-weight:950;list-style:none;} summary::-webkit-details-marker{display:none;}
+    .faq-body{margin-top:9px;color:var(--muted);font-size:14px;line-height:1.7;}
+
+    footer{border-top:1px solid var(--line);background:rgba(255,255,255,.86);}
+    .footer-inner{width:min(var(--max),calc(100% - 24px));margin:0 auto;padding:18px 0;color:var(--muted);font-size:12px;line-height:1.65;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;}
+    .toast{position:fixed;left:50%;bottom:18px;transform:translateX(-50%) translateY(20px);opacity:0;pointer-events:none;background:rgba(17,24,39,.92);color:#fff;border-radius:999px;padding:10px 14px;font-size:13px;transition:.16s;z-index:60;}
+    .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <a class="brand" href="#top" aria-label="청렴톡톡 처음으로">
+        <div class="mark">청</div>
+        <div class="brand-text">
+          <div class="site">청렴톡톡</div>
+          <div class="org">청렴 법령을 쉽고 정확하게 묻고 답하는 안내 서비스</div>
+        </div>
+      </a>
+      <div class="top-actions">
+        <span class="pill"><span class="dot"></span>벡터스토어 기반 답변</span>
+        <a class="header-link" id="gptHeader" href="https://chatgpt.com/gpts/editor/g-6a19803a74348191ad8c06d4c78e4db5" target="_blank" rel="noopener noreferrer">GPT에서 보기</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="heroTitle">
+      <div class="hero-main">
+        <span class="eyebrow"><span class="dot"></span>청탁금지법 · 이해충돌방지법 · 공직윤리</span>
+        <h1 id="heroTitle">어려운 청렴 법령,<br>톡톡 물어보세요.</h1>
+        <p>
+          청렴톡톡은 등록된 법령·사례 자료를 바탕으로 질문에 답하는 챗봇형 안내 페이지입니다.
+          중학생도 이해할 수 있는 말로 풀어 설명하고, 가능한 경우 근거와 예시를 함께 제시합니다.
+        </p>
+        <div class="hero-buttons">
+          <button class="btn primary" type="button" id="focusChat">여기서 질문하기</button>
+          <a class="btn soft" href="https://chatgpt.com/gpts/editor/g-6a19803a74348191ad8c06d4c78e4db5" target="_blank" rel="noopener noreferrer">GPT에서 보기</a>
+          <button class="btn" type="button" id="copyLink">링크 복사</button>
+        </div>
+      </div>
+
+      <aside class="side-card" aria-label="서비스 특징">
+        <h2>이렇게 답변합니다</h2>
+        <div class="feature"><strong>근거 중심</strong><span>등록된 벡터스토어 자료에서 확인되는 내용 위주로 답변합니다.</span></div>
+        <div class="feature"><strong>쉬운 설명</strong><span>법 조항을 그대로 나열하기보다 상황·예시 중심으로 풀어 설명합니다.</span></div>
+        <div class="feature"><strong>업무 활용</strong><span>청렴 교육, 퀴즈, 뉴스레터, 사례 안내 문안 작성에 활용할 수 있습니다.</span></div>
+      </aside>
+    </section>
+
+    <div class="section-head">
+      <div>
+        <h2>청렴톡톡에게 묻기</h2>
+        <p>아래 예시 질문을 누르거나 직접 질문을 입력해 주세요.</p>
+      </div>
+    </div>
+
+    <section class="chat-card" aria-label="청렴톡톡 채팅창">
+      <div class="quick">
+        <button class="qbtn" type="button" data-q="summary">이해충돌방지법이 뭐야?</button>
+        <button class="qbtn" type="button" data-q="gift">직무관련자에게 선물을 받아도 돼?</button>
+        <button class="qbtn" type="button" data-q="meal">식사·경조사비 기준을 알려줘</button>
+        <button class="qbtn" type="button" data-q="quiz">청렴 퀴즈 3문제 만들어줘</button>
+      </div>
+      <div class="chatlog" id="chatLog" aria-live="polite">
+        <div class="bubble assistant">
+          <span class="meta">청렴톡톡</span>
+          <div class="md-content">안녕하세요. 청렴 관련 법령이나 사례가 궁금하면 질문해 주세요. 등록된 자료에서 확인되지 않는 내용은 임의로 추측하지 않겠습니다.</div>
+        </div>
+      </div>
+      <form class="chatform" id="chatForm">
+        <input class="chatin" id="chatInput" type="text" autocomplete="off" placeholder="예: 공무원이 외부강의를 할 때 신고해야 하나요?" />
+        <button class="send" id="chatSend" type="submit">보내기</button>
+      </form>
+    </section>
+
+    <section class="info-grid">
+      <div class="notice-card">
+        <strong>출처 및 안내</strong>
+        <p>
+          이 서비스는 등록된 청렴 관련 자료를 바탕으로 답변하는 보조 도구입니다.
+          실제 징계·처분·법률 판단이 필요한 사안은 소속 기관 감사부서, 국민권익위원회 안내자료, 관련 법령 원문을 함께 확인해 주세요.
+        </p>
+      </div>
+      <div class="faq-card">
+        <strong>자주 묻는 질문</strong>
+        <details open>
+          <summary>답변이 항상 법적 판단인가요?</summary>
+          <div class="faq-body">아니요. 청렴톡톡은 자료 기반 안내 서비스입니다. 구체적 사실관계에 따른 최종 판단은 담당 부서 확인이 필요합니다.</div>
+        </details>
+        <details>
+          <summary>자료에 없는 질문은 어떻게 되나요?</summary>
+          <div class="faq-body">서버에서 벡터스토어 검색 결과가 없으면 “등록된 자료에서 확인되지 않는다”는 취지로 답변하도록 설정했습니다.</div>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <span>© 청렴톡톡</span>
+      <span>Vector Store: vs_6a1ee15dd3e88191a902e2dd2aa8c637</span>
+    </div>
+  </footer>
+  <div class="toast" id="toast">복사되었습니다.</div>
+
+  <script>
+    const GPT_URL = 'https://chatgpt.com/gpts/editor/g-6a19803a74348191ad8c06d4c78e4db5';
+    const chatLog = document.getElementById('chatLog');
+    const chatForm = document.getElementById('chatForm');
+    const chatInput = document.getElementById('chatInput');
+    const chatSend = document.getElementById('chatSend');
+    const toast = document.getElementById('toast');
+    const convo = [];
+
+    function showToast(message){
+      toast.textContent = message || '복사되었습니다.';
+      toast.classList.add('show');
+      clearTimeout(showToast.timer);
+      showToast.timer = setTimeout(()=>toast.classList.remove('show'), 1500);
+    }
+
+    function escapeHtml(str){
+      return String(str || '').replace(/[&<>'"]/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[ch]));
+    }
+
+    function renderMarkdownToHtml(text){
+      let html = escapeHtml(text || '');
+      html = html.replace(/```([\s\S]*?)```/g, '<pre><code>$1</code></pre>');
+      html = html.replace(/`([^`]+)`/g, '<code>$1</code>');
+      html = html.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+      html = html.replace(/^###\s+(.+)$/gm, '<strong>$1</strong>');
+      html = html.replace(/^[-*]\s+(.+)$/gm, '<li>$1</li>');
+      html = html.replace(/(<li>[\s\S]*?<\/li>)/g, '<ul>$1</ul>');
+      html = html.replace(/<\/ul>\s*<ul>/g, '');
+      html = html.replace(/\n{2,}/g, '</p><p>');
+      html = html.replace(/\n/g, '<br>');
+      if(!html.startsWith('<')) html = '<p>' + html + '</p>';
+      return html;
+    }
+
+    function appendBubble(role, text){
+      const div = document.createElement('div');
+      div.className = 'bubble ' + (role === 'user' ? 'user' : 'assistant');
+      const meta = document.createElement('span');
+      meta.className = 'meta';
+      meta.textContent = role === 'user' ? '나' : '청렴톡톡';
+      div.appendChild(meta);
+      const content = document.createElement('div');
+      content.className = 'md-content';
+      content.innerHTML = renderMarkdownToHtml(text);
+      div.appendChild(content);
+      chatLog.appendChild(div);
+      chatLog.scrollTop = chatLog.scrollHeight;
+      return div;
+    }
+
+    async function callBackend(messages){
+      const res = await fetch('/api/cheongnyeomtoktok', {
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({messages})
+      });
+      if(!res.ok){
+        const t = await res.text().catch(()=> '');
+        throw new Error('API 오류 (' + res.status + '): ' + (t || '서버 응답 없음'));
+      }
+      return await res.json();
+    }
+
+    async function sendUserMessage(text){
+      const q = (text || '').trim();
+      if(!q) return;
+      appendBubble('user', q);
+      convo.push({role:'user', content:q});
+      chatSend.disabled = true;
+      chatInput.disabled = true;
+
+      const loadingId = 'loading-' + Date.now();
+      const loading = document.createElement('div');
+      loading.className = 'bubble assistant';
+      loading.id = loadingId;
+      loading.innerHTML = '<span class="meta">청렴톡톡</span><div class="md-content">답변 생성 중…</div>';
+      chatLog.appendChild(loading);
+      chatLog.scrollTop = chatLog.scrollHeight;
+
+      try{
+        const data = await callBackend(convo);
+        const answer = (data && (data.text || data.answer || data.output)) || '';
+        document.getElementById(loadingId)?.remove();
+        if(!answer){
+          appendBubble('assistant', '서버에서 답변을 받지 못했어요. 응답 형식을 확인해 주세요.');
+        }else{
+          appendBubble('assistant', answer);
+          convo.push({role:'assistant', content:answer});
+        }
+      }catch(err){
+        document.getElementById(loadingId)?.remove();
+        appendBubble('assistant', '지금은 페이지에서 바로 답변을 가져올 수 없어요. Render 배포 상태, OPENAI_API_KEY 환경변수, /api/cheongnyeomtoktok 경로를 확인해 주세요.\n\n임시로는 “GPT에서 보기” 버튼을 이용해 주세요.');
+        console.error(err);
+      }finally{
+        chatSend.disabled = false;
+        chatInput.disabled = false;
+        chatInput.focus({preventScroll:true});
+      }
+    }
+
+    document.querySelectorAll('[data-q]').forEach(btn=>{
+      btn.addEventListener('click',()=>{
+        const kind = btn.getAttribute('data-q');
+        const promptMap = {
+          summary:'이해충돌방지법이 무엇인지 중학생도 이해할 수 있게 설명하고, 예시 2개를 들어줘.',
+          gift:'직무관련자에게 선물을 받으면 청탁금지법상 문제가 되는지 기준과 예시를 들어 설명해줘.',
+          meal:'청탁금지법상 식사, 선물, 경조사비 기준을 표로 정리해줘. 단, 등록된 자료 기준으로만 답해줘.',
+          quiz:'청렴 교육용 OX 퀴즈 3문제를 만들고 정답과 해설을 붙여줘.'
+        };
+        sendUserMessage(promptMap[kind] || '');
+      });
+    });
+
+    chatForm.addEventListener('submit', e=>{
+      e.preventDefault();
+      sendUserMessage(chatInput.value);
+      chatInput.value = '';
+    });
+
+    document.getElementById('focusChat').addEventListener('click',()=>{
+      chatInput.scrollIntoView({behavior:'smooth', block:'center'});
+      setTimeout(()=>chatInput.focus(), 350);
+    });
+
+    document.getElementById('copyLink').addEventListener('click', async()=>{
+      try{
+        await navigator.clipboard.writeText(location.href);
+        showToast('홈페이지 링크를 복사했어요.');
+      }catch(e){
+        showToast('복사에 실패했어요. 주소창 링크를 복사해 주세요.');
+      }
+    });
+  </script>
+</body>
+</html>
